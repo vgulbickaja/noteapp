@@ -1,5 +1,9 @@
 import { React } from "react";
+import LinearProgress from "@mui/material/LinearProgress";
+
 function Create({ textHandler, saveHandler, inputText }) {
+  const charLimit = 100;
+  const charLeft = charLimit - inputText.length;
   return (
     <div className="note" style={{ background: "rgba(255, 255, 255, 0)" }}>
       <textarea
@@ -11,11 +15,16 @@ function Create({ textHandler, saveHandler, inputText }) {
         maxLength="100"
       ></textarea>
       <div className="noteFooter">
-        <span className="label"> left</span>
+        <span className="label">{charLeft} left</span>
         <button className="noteSave" onClick={saveHandler}>
           Save
         </button>
       </div>
+      <LinearProgress
+        className="char__progress"
+        variant="determinate"
+        value={charLeft}
+      />
     </div>
   );
 }
