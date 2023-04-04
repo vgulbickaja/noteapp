@@ -29,6 +29,17 @@ function Notes() {
     setNotes(filteredNotes);
   };
 
+  useEffect(() => {
+    localStorage.setItem("Notes", JSON.stringify(notes));
+  }, [notes]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("Notes"));
+    if (data) {
+      setNotes(data);
+    }
+  }, []);
+
   return (
     <div className="notes">
       {notes.map((note) => (
