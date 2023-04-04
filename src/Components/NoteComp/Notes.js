@@ -28,17 +28,16 @@ function Notes() {
     const filteredNotes = notes.filter((note) => note.id !== id);
     setNotes(filteredNotes);
   };
-
-  useEffect(() => {
-    localStorage.setItem("Notes", JSON.stringify(notes));
-  }, [notes]);
-
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("Notes"));
     if (data) {
       setNotes(data);
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("Notes", JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <div className="notes">
