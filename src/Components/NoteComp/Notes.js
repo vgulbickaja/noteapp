@@ -24,10 +24,19 @@ function Notes() {
     setInputText("");
   };
 
+  const deleteNote = (id) => {
+    const filteredNotes = notes.filter((note) => note.id !== id);
+    setNotes(filteredNotes);
+  };
+
   return (
     <div className="notes">
       <Note />
-      <Create />
+      <Create
+        textHandler={textHandler}
+        saveHandler={saveHandler}
+        inputText={inputText}
+      />
     </div>
   );
 }
