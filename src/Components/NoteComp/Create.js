@@ -12,7 +12,7 @@ function Create({ textHandler, saveHandler, inputText }) {
       ></textarea>
       <div className="noteFooter">
         <span className="label"> left</span>
-        <button className="noteSave" onCklick={saveHandler}>
+        <button className="noteSave" onClick={saveHandler}>
           Save
         </button>
       </div>
